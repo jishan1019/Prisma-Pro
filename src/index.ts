@@ -1,22 +1,73 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient, UserRole } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
 const main = async () => {
-  //   const result = await prisma.post.create({
+  //   const createUser = await prisma.user.create({
   //     data: {
-  //       title: "Resct 19 Come with 24 lts version",
-  //       content:
-  //         "Node.js comes with 24 lts version, which is more stable and secure.",
-  //       published: false,
-  //       authorName: "John Doe",
+  //       username: "user1",
+  //       email: "user1@gmail.com",
+  //       role: UserRole.user,
   //     },
   //   });
-  //   console.log(result);
 
-  const getAllPosts = await prisma.post.findMany();
+  //   const createProfile = await prisma.profile.create({
+  //     data: {
+  //       bio: "this is user 1 bio",
+  //       userId: 1,
+  //     },
+  //   });
 
-  console.log(getAllPosts);
+  //   const createCategory = await prisma.category.create({
+  //     data: {
+  //       name: "App Development",
+  //     },
+  //   });
+
+  //   const createPost = await prisma.post.create({
+  //     data: {
+  //       title: "My Frist posts",
+  //       content: "This is my first post",
+  //       authorId: 1,
+  //       postCategory: {
+  //         create: {
+  //           categoryId: 1,
+
+  //           // category : {
+  //           //     connect : {
+  //           //         id: 1
+  //           //     }
+  //           // }
+  //         },
+  //       },
+  //     },
+  //     include: {
+  //       postCategory: true,
+  //     },
+  //   });
+
+  //   const createPost = await prisma.post.create({
+  //     data: {
+  //       title: "My Frist posts",
+  //       content: "This is my first post",
+  //       authorId: 1,
+  //       postCategory: {
+  //         create: [
+  //           {
+  //             categoryId: 1,
+  //           },
+  //           {
+  //             categoryId: 2,
+  //           },
+  //         ],
+  //       },
+  //     },
+  //     include: {
+  //       postCategory: true,
+  //     },
+  //   });
+
+  console.log("create successfully");
 };
 
 main();
