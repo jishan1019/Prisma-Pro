@@ -1,6 +1,17 @@
 import { PrismaClient } from "@prisma/client";
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient({
+  log: [
+    {
+      emit: "event",
+      level: "query",
+    },
+  ],
+});
+
+prisma.$on("query", (e) => {
+  console.log(e);
+});
 
 const main = async () => {
   //   const andFiltering = await prisma.post.findMany({
@@ -54,21 +65,17 @@ const main = async () => {
   //     },
   //   });
 
-  const endWithFiltering = await prisma.user.findMany({
-    where: {
-      email: {
-        endsWith: "com",
-      },
-    },
-  });
+  //   const endWithFiltering = await prisma.user.findMany({
+  //     where: {
+  //       email: {
+  //         endsWith: "com",
+  //       },
+  //     },
+  //   });
 
-  const equalFiltering = await prisma.user.findMany({
-    where: {
-      email: "user1@gmail.com",
-    },
-  });
+  const equalFiltering = await prisma.user.findMany({});
 
-  console.log(equalFiltering);
+  //   console.log(equalFiltering);
 };
 
 main();
