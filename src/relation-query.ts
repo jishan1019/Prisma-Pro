@@ -22,17 +22,22 @@ const main = async () => {
   //     },
   //   });
 
-  const relationalFields = await prisma.user.findMany({
-    include: {
-      post: {
-        where: {
-          published: true,
-        },
-      },
-    },
-  });
+  // const relationalFields = await prisma.user.findMany({
+  //   include: {
+  //     post: {
+  //       where: {
+  //         published: true,
+  //       },
+  //     },
+  //   },
+  // });
 
-  console.dir(relationalFields, { depth: Infinity });
-};
+  // console.dir(relationalFields, { depth: Infinity });
+  
+
+
+
+
+  
 
 main();
